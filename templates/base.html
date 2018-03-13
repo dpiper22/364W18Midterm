@@ -1,0 +1,31 @@
+
+
+{% block content1 %}
+
+<form action="{{ url_for('home') }}" method="POST">
+    {{ form.name.label() }}{{ form.name() }}<br>
+    {{ form.business.label() }}{{ form.business() }}<br>
+    {{ form.review.label() }}{{ form.review() }}<br>
+
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+
+{% for message in get_flashed_messages() %}
+	<p><strong>{{ message }}</strong></p>
+{% endfor %}
+
+
+<br></br>
+<h2>Enter a Review or View Previous Reviews and Ratings</h2>
+
+	<p><a href="{{ url_for ('home') }}"> Return to Name input form</a></p>
+	<p><a href="{{ url_for ('all_names') }}"> List of Names Entered </a></p>
+	<p><a href="{{ url_for ('business') }}"> Enter Business and Location</a></p>
+	<p><a href="{{ url_for ('return_form') }}"> Enter Information about Experience with Business</a></p>
+	<p><a href="{{ url_for ('all_businesses') }}"> View Information from Yelp about Business and Reviews entered</a></p>
+	<p><a href="{{ url_for ('all_returns') }}"> View all Experiences with Businesses</a></p>
+	
+{% endblock %}
+
+	
